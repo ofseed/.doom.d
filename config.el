@@ -79,6 +79,11 @@
 
 (pushnew! initial-frame-alist '(width . 120) '(height . 45))
 
+(use-package! rime
+  :init (setq rime-show-candidate 'posframe)
+  :custom (default-input-method "rime")
+  :hook (kill-emacs-hook . rime-lib-finalize))
+
 (use-package! telega
   :load-path "~/telega.el"
   :commands (telega)
