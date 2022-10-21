@@ -78,3 +78,8 @@
 ;; they are implemented.
 
 (pushnew! initial-frame-alist '(width . 120) '(height . 45))
+
+(use-package! telega
+  :load-path "~/telega.el"
+  :commands (telega)
+  :defer t)
