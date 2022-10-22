@@ -82,7 +82,7 @@
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
   :custom (default-input-method "rime")
-  :hook (kill-emacs-hook . rime-lib-finalize))
+  :hook (kill-emacs . rime-lib-finalize))
 
 (use-package! telega
   :load-path "~/telega.el"
