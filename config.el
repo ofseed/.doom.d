@@ -79,6 +79,9 @@
 
 (pushnew! initial-frame-alist '(width . 120) '(height . 45))
 
+(use-package! evil
+  :bind ("C-l" . evil-ex-nohighlight))
+
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
   :custom (default-input-method "rime")
