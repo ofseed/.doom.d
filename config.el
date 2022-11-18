@@ -80,7 +80,8 @@
 (pushnew! initial-frame-alist '(width . 100) '(height . 40))
 
 (use-package! evil
-  :bind ("C-l" . evil-ex-nohighlight))
+  :config
+  (evil-global-set-key 'normal (kbd "C-l") 'evil-ex-nohighlight))
 
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
