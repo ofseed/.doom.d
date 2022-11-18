@@ -85,7 +85,11 @@
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
   :custom (default-input-method "rime")
-  :hook (kill-emacs . rime-lib-finalize))
+  :config
+  (defun ym/rime-finalize()
+    (when (fboundp 'rime-lib-finalize)
+     (rime-lib-finalize)))
+  :hook (kill-emacs . ym/rime-finalize))
 
 (use-package! telega
   :load-path "~/telega.el"
