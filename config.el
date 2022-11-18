@@ -77,7 +77,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(pushnew! initial-frame-alist '(width . 120) '(height . 45))
+(pushnew! initial-frame-alist '(width . 100) '(height . 40))
 
 (use-package! evil
   :bind ("C-l" . evil-ex-nohighlight))
