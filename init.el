@@ -154,6 +154,7 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +pretty               ; organize your plain life in plain text
+           +dragndrop
            +pandoc
            +journal
            +roam2)
