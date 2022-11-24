@@ -91,16 +91,23 @@ etc).
 You can also try =gd= (or =C-c c d=) to jump to their definition and see how
 they are implemented.
 
+Adjust emacs window size. Note that ~initial-frame-alist~ has no effect on
+the window size of emacsclient.
 #+BEGIN_SRC elisp
 (pushnew! default-frame-alist '(width . 100) '(height . 40))
 #+END_SRC
 
+Evil mode configuration, use =C-l= to clear search highlighting.
 #+BEGIN_SRC elisp
 (use-package! evil
   :config
   (evil-global-set-key 'normal (kbd "C-l") 'evil-ex-nohighlight))
 #+END_SRC
 
+Emacs-Rime is used as a client of rime to provide the Chinese input method
+inside Emacs. ~rime-lib-finalize~ is required to finalize librime, otherwise,
+there will a segment fault be generated. Wrap it with a custom function,
+since it will not be defined if emacs-rime is not loaded.
 #+BEGIN_SRC elisp
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
@@ -112,6 +119,7 @@ they are implemented.
   :hook (kill-emacs . ym/rime-finalize))
 #+END_SRC
 
+Telega is a client for Telegram.
 #+BEGIN_SRC elisp
 (use-package! telega
   :load-path "~/telega.el"
