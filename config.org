@@ -1,5 +1,6 @@
 #+BEGIN_SRC elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+#+END_SRC
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -7,8 +8,10 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
+#+BEGIN_SRC elisp
 (setq user-full-name "Yi Ming"
      user-mail-address "ofseed@foxmail.com")
+#+END_SRC
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -30,20 +33,28 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
+#+BEGIN_SRC elisp
 (setq doom-font (font-spec :family "LXGW WenKai Mono" :size 18))
+#+END_SRC
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
+#+BEGIN_SRC elisp
 (setq doom-theme 'doom-horizon)
+#+END_SRC
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
+#+BEGIN_SRC elisp
 (setq display-line-numbers-type t)
+#+END_SRC
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+#+BEGIN_SRC elisp
 (setq org-directory "~/Documents/org/")
+#+END_SRC
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -78,6 +89,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+#+BEGIN_SRC elisp
 (pushnew! default-frame-alist '(width . 100) '(height . 40))
 
 (use-package! evil
