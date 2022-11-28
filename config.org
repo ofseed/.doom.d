@@ -119,6 +119,28 @@ since it will not be defined if emacs-rime is not loaded.
   :hook (kill-emacs . ym/rime-finalize))
 #+END_SRC
 
+A websocket implementation in lisp, for emacs. Load websocket after org-roam
+is loaded. This is a recommend configuration of org-roam-ui.
+#+BEGIN_SRC elisp
+(use-package! websocket
+  :after org-roam)
+#+END_SRC
+
+Org-Roam-UI is a frontend for exploring and interacting with the Org-Roam notes.
+#+BEGIN_SRC elisp
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;; hookable mode anymore, you're advised to pick something yourself
+;; you don't care about startup time, use
+;;:hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+#+END_SRC
+
 Telega is a client for Telegram.
 #+BEGIN_SRC elisp
 (use-package! telega

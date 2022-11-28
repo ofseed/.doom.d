@@ -49,6 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+(unpin! org-roam) ; org-roam-ui tries to keep up the latest version of `org-roam'
 (package! evil-snipe :disable t)
 (package! rime)
 (package! telega)
+(package! org-roam-ui)
