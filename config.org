@@ -1,6 +1,6 @@
-#+BEGIN_SRC elisp
+#+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-#+END_SRC
+#+end_src
 
 * Doom Emacs
 Place your private configuration here! Remember, you do not need to run
@@ -9,10 +9,10 @@ Place your private configuration here! Remember, you do not need to run
 
 Some functionality uses this to identify you, e.g. GPG configuration, email
 clients, file templates and snippets. It is optional.
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (setq user-full-name "Yi Ming"
      user-mail-address "ofseed@foxmail.com")
-#+END_SRC
+#+end_src
 
 Doom exposes five (optional) variables for controlling fonts in Doom:
 
@@ -34,29 +34,29 @@ up, =M-x eval-region= to execute elisp code, and =M-x doom/reload-font= to
 refresh your font settings. If Emacs still can't find your font, it likely
 wasn't installed correctly. Font issues are rarely Doom issues!
 
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (setq doom-font (font-spec :family "LXGW WenKai Mono" :size 13.0)
       doom-variable-pitch-font (font-spec :family "LXGW WenKai" :size 13.0))
-#+END_SRC
+#+end_src
 
 There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set ~doom-theme~ or manually load a theme with the
 ~load-theme~ function. This is the default:
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (setq doom-theme 'doom-horizon)
-#+END_SRC
+#+end_src
 
 This determines the style of line numbers in effect. If set to ~nil~, line
 numbers are disabled. For relative line numbers, set this to ~relative~.
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (setq display-line-numbers-type nil)
-#+END_SRC
+#+end_src
 
 If you use ~org~ and don't want your org files in the default location below,
 change ~org-directory~. It must be set before org loads!
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (setq org-directory "~/Documents/org/")
-#+END_SRC
+#+end_src
 
 
 * Custom Packages
@@ -94,22 +94,22 @@ they are implemented.
 
 Adjust emacs window size. Note that ~initial-frame-alist~ has no effect on
 the window size of emacsclient.
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (pushnew! default-frame-alist '(width . 100) '(height . 40))
-#+END_SRC
+#+end_src
 
 Evil mode configuration, use =C-l= to clear search highlighting.
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (use-package! evil
   :config
   (evil-global-set-key 'normal (kbd "C-l") 'evil-ex-nohighlight))
-#+END_SRC
+#+end_src
 
 Emacs-Rime is used as a client of rime to provide the Chinese input method
 inside Emacs. ~rime-lib-finalize~ is required to finalize librime, otherwise,
 there will a segment fault be generated. Wrap it with a custom function,
 since it will not be defined if emacs-rime is not loaded.
-#+BEGIN_SRC elisp
+#+begin_src elisp
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
   :custom (default-input-method "rime")
@@ -118,7 +118,7 @@ since it will not be defined if emacs-rime is not loaded.
     (when (fboundp 'rime-lib-finalize)
      (rime-lib-finalize)))
   :hook (kill-emacs . ym/rime-finalize))
-#+END_SRC
+#+end_src
 
 A websocket implementation in lisp, for emacs. Load websocket after org-roam
 is loaded. This is a recommend configuration of org-roam-ui.
