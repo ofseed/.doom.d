@@ -35,7 +35,7 @@ refresh your font settings. If Emacs still can't find your font, it likely
 wasn't installed correctly. Font issues are rarely Doom issues!
 
 #+BEGIN_SRC elisp
-(setq doom-font (font-spec :family "LXGW WenKai Mono" :size 18.0))
+(setq doom-font (font-spec :family "LXGW WenKai Mono" :size 13.0))
 #+END_SRC
 
 There are two ways to load a theme. Both assume the theme is installed and
