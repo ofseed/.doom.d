@@ -25,10 +25,10 @@ Doom exposes five (optional) variables for controlling fonts in Doom:
 
 See =C-h v doom-font= for documentation and more examples of what they
 accept. For example:
-
-setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+#+begin_src emacs-lisp :tangle no
+(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-
+#+end_src
 If you or Emacs can't find your font, use =M-x describe-font= to look them
 up, =M-x eval-region= to execute elisp code, and =M-x doom/reload-font= to
 refresh your font settings. If Emacs still can't find your font, it likely
@@ -62,10 +62,10 @@ change ~org-directory~. It must be set before org loads!
 * Custom Packages
 Whenever you reconfigure a package, make sure to wrap your config in an
 ~after!~ block, otherwise Doom's defaults may override your settings. E.g.
-
+#+begin_src emacs-lisp :tangle no
   (after! PACKAGE
     (setq x y))
-
+#+end_src
 The exceptions to this rule:
 
   - Setting file/directory variables (like ~org-directory~)
