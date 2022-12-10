@@ -142,6 +142,13 @@ Org-Roam-UI is a frontend for exploring and interacting with the Org-Roam notes.
         org-roam-ui-open-on-start t))
 #+END_SRC
 
+Org-Re-Reveal is used to export html files with reveal.js format.
+Configure the highlight.js plugin of reveal.js to use the builtin monokai theme.
+#+begin_src emacs-lisp
+(use-package! org-re-reveal
+  :config (setq org-re-reveal-highlight-css 'monokai))
+#+end_src
+
 Telega is a client for Telegram.
 #+BEGIN_SRC elisp
 (use-package! telega
