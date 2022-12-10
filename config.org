@@ -9,7 +9,7 @@ Place your private configuration here! Remember, you do not need to run
 
 Some functionality uses this to identify you, e.g. GPG configuration, email
 clients, file templates and snippets. It is optional.
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Yi Ming"
      user-mail-address "ofseed@foxmail.com")
 #+end_src
@@ -34,7 +34,7 @@ up, =M-x eval-region= to execute elisp code, and =M-x doom/reload-font= to
 refresh your font settings. If Emacs still can't find your font, it likely
 wasn't installed correctly. Font issues are rarely Doom issues!
 
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (setq doom-font (font-spec :family "LXGW WenKai Mono" :size 13.0)
       doom-variable-pitch-font (font-spec :family "LXGW WenKai" :size 13.0))
 #+end_src
@@ -42,19 +42,19 @@ wasn't installed correctly. Font issues are rarely Doom issues!
 There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set ~doom-theme~ or manually load a theme with the
 ~load-theme~ function. This is the default:
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (setq doom-theme 'doom-horizon)
 #+end_src
 
 This determines the style of line numbers in effect. If set to ~nil~, line
 numbers are disabled. For relative line numbers, set this to ~relative~.
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (setq display-line-numbers-type nil)
 #+end_src
 
 If you use ~org~ and don't want your org files in the default location below,
 change ~org-directory~. It must be set before org loads!
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/org/")
 #+end_src
 
@@ -94,12 +94,12 @@ they are implemented.
 
 Adjust emacs window size. Note that ~initial-frame-alist~ has no effect on
 the window size of emacsclient.
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (pushnew! default-frame-alist '(width . 100) '(height . 40))
 #+end_src
 
 Evil mode configuration, use =C-l= to clear search highlighting.
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! evil
   :config
   (evil-global-set-key 'normal (kbd "C-l") 'evil-ex-nohighlight))
@@ -109,7 +109,7 @@ Emacs-Rime is used as a client of rime to provide the Chinese input method
 inside Emacs. ~rime-lib-finalize~ is required to finalize librime, otherwise,
 there will a segment fault be generated. Wrap it with a custom function,
 since it will not be defined if emacs-rime is not loaded.
-#+begin_src elisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! rime
   :init (setq rime-show-candidate 'posframe)
   :custom (default-input-method "rime")
@@ -122,13 +122,13 @@ since it will not be defined if emacs-rime is not loaded.
 
 A websocket implementation in lisp, for emacs. Load websocket after org-roam
 is loaded. This is a recommend configuration of org-roam-ui.
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! websocket
   :after org-roam)
-#+END_SRC
+#+end_src
 
 Org-Roam-UI is a frontend for exploring and interacting with the Org-Roam notes.
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! org-roam-ui
   :after org-roam ;; or :after org
 ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
@@ -140,19 +140,19 @@ Org-Roam-UI is a frontend for exploring and interacting with the Org-Roam notes.
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
-#+END_SRC
+#+end_src
 
 Org-Re-Reveal is used to export html files with reveal.js format.
 Configure the highlight.js plugin of reveal.js to use the builtin monokai theme.
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! org-re-reveal
   :config (setq org-re-reveal-highlight-css 'monokai))
 #+end_src
 
 Telega is a client for Telegram.
-#+BEGIN_SRC elisp
+#+begin_src emacs-lisp :tangle yes
 (use-package! telega
   :load-path "~/telega.el"
   :commands (telega)
   :defer t)
-#+END_SRC
+#+end_src
