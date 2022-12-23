@@ -127,6 +127,15 @@ is loaded. This is a recommend configuration of org-roam-ui.
   :after org-roam)
 #+end_src
 
+Preview org latex on startup and
+Scale latex preview images, the default is 1.5.
+#+begin_src emacs-lisp :tangle yes
+(use-package! org
+  :config
+  (setq org-startup-with-latex-preview t
+        org-format-latex-options (plist-put org-format-latex-options :scale 3.0)))
+#+end_src
+
 Org-Roam-UI is a frontend for exploring and interacting with the Org-Roam notes.
 #+begin_src emacs-lisp :tangle yes
 (use-package! org-roam-ui
