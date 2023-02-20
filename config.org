@@ -120,6 +120,13 @@ since it will not be defined if emacs-rime is not loaded.
   :hook (kill-emacs . ym/rime-finalize))
 #+end_src
 
+Vterm is a terminal emulator inside Emacs based on libvterm.
+The default shell is ~$SHELL~, set it to =fish=.
+#+begin_src emacs-lisp :tangle yes
+(use-package! vterm
+  :custom (vterm-shell "fish"))
+#+end_src
+
 A websocket implementation in lisp, for emacs. Load websocket after org-roam
 is loaded. This is a recommend configuration of org-roam-ui.
 #+begin_src emacs-lisp :tangle yes
